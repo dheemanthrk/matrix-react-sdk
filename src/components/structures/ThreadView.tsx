@@ -123,7 +123,7 @@ export default class ThreadView extends React.Component<IProps, IState> {
         SettingsStore.unwatchSetting(this.layoutWatcherRef);
 
         const hasRoomChanged = SdkContextClass.instance.roomViewStore.getRoomId() !== roomId;
-        if (this.props.isInitialEventHighlighted && !hasRoomChanged) {
+        if (this.props.initialEvent && !hasRoomChanged) {
             dis.dispatch<ViewRoomPayload>({
                 action: Action.ViewRoom,
                 room_id: this.props.room.roomId,
